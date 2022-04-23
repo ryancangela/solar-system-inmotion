@@ -1,0 +1,833 @@
+main {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+body {
+  background-color: #000;
+  background-image: radial-gradient(#60a0d120 0%, #7160d112 100%);
+}
+
+.sun,
+.mercury,
+.venus,
+.earth,
+.moon,
+.mars,
+.juptier,
+.juptier-rings,
+.juptier-rings-inner,
+.saturn,
+.uranus,
+.neptune,
+.star {
+  border-radius: 50%;
+  z-index: 9999999;
+}
+
+/*Sun*/
+.sun {
+  order: 5;
+  z-index: 9999999;
+  height: 19vh;
+  width: 19vh;
+  margin: 46vh auto;
+  /*background-image: radial-gradient(#fceabb 0%, #f8b500 100%);*/
+  /*background-image: url("https://ryancangela.com/wp-content/uploads/codepen/solar-system/sun_codepen.jpg");
+  background-size: 130%;*/
+  background-position: center center;
+  /*filter: drop-shadow(0 .25rem 6rem #f8b50050);*/
+  animation: sun-flares 6s infinite ease-in-out;
+}
+
+@keyframes sun-flares {
+  0% {
+    filter: drop-shadow(0 0.25rem 2rem #f8b500);
+    background-image: radial-gradient(
+      #fceabb 0%,
+      #f9ca4c 40%,
+      #f8b500 75%,
+      #f89900 100%
+    );
+  }
+  30% {
+    filter: drop-shadow(0 0.25rem 8rem #f8b50070);
+    background-image: radial-gradient(
+      #fceabb 0%,
+      #f9ca4c 45%,
+      #f8b500 70%,
+      #f85700 100%
+    );
+  }
+  65% {
+    filter: drop-shadow(0 0.25rem 3rem #f8b50030);
+    background-image: radial-gradient(
+      #fceabb 0%,
+      #f9ca4c 40%,
+      #f8b500 75%,
+      #f89900 100%
+    );
+  }
+  87% {
+    filter: drop-shadow(0 0.25rem 5rem #f8b50070);
+    background-image: radial-gradient(
+      #fceabb 0%,
+      #f9ca4c 45%,
+      #f8b500 70%,
+      #f85700 100%
+    );
+  }
+  100% {
+    filter: drop-shadow(0 0.25rem 2rem #f8b500);
+    background-image: radial-gradient(
+      #fceabb 0%,
+      #f9ca4c 40%,
+      #f8b500 75%,
+      #f89900 100%
+    );
+  }
+}
+
+.pivot {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/*Planet Groups*/
+.planets {
+  display: grid;
+  grid-auto-flow: column dense;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . . . . . . . .";
+}
+
+.tagyourit {
+  margin: auto;
+  z-index: 999999;
+  margin: 1em;
+  justify-self: center;
+  align-self: center;
+  margin: 1em;
+  vertical-align: baseline;
+}
+
+.mercury {
+  order: 6;
+  position: relative;
+  height: 3vh;
+  width: 3vh;
+  background-image: radial-gradient(#cac5c7 0%, #6b6869 100%);
+  filter: drop-shadow(0 0.25rem 1rem #9c979d70);
+}
+
+.venus {
+  order: 4;
+  position: relative;
+  height: 4.5vh;
+  width: 4.5vh;
+  background-image: radial-gradient(#e3bb52 0%, #e9bf59 100%);
+  filter: drop-shadow(0 0.25rem 1.25rem #d7a84b50);
+}
+
+.earth {
+  order: 7;
+  margin: auto;
+  position: relative;
+  height: 6vh;
+  width: 6vh;
+  filter: drop-shadow(0 0.25rem 1.25rem #6d9bc260);
+  background-image: linear-gradient(#6d9bc2 0%, #6d9bc2 100%);
+}
+
+.earth-shadow {
+  margin: auto;
+  position: relative;
+  bottom: 1.15vh;
+  height: 6vh;
+  width: 6vh;
+  filter: drop-shadow(0 0.25rem 1.25rem #6d9bc2);
+  border-radius: 50%;
+  rotate: (120deg) !important;
+  background-image: linear-gradient(#6d9bc2 0%, #38465280 100%);
+  animation: earth-shadow 8s infinite ease-in-out;
+}
+
+@keyframes earth-shadow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: translate(1%, -1%) rotate(360deg);
+  }
+}
+
+.moon {
+  position: relative;
+  top: 4vh;
+  left: 0vw;
+  margin: auto;
+  height: 1.25vh;
+  width: 1.25vh;
+  background-image: radial-gradient(#959396 0%, #727273 100%);
+  animation: moon-spin 8s infinite linear;
+}
+@keyframes moon-spin {
+  0% {
+    transform: rotate(0deg) translateX(6vh);
+  }
+  50% {
+    transform: rotate(180deg) translateX(10vh);
+  }
+  100% {
+    transform: rotate(360deg) translateX(6vh);
+  }
+}
+
+.mars {
+  order: 3;
+  position: relative;
+  margin: auto;
+  height: 2.25vh;
+  width: 2.25vh;
+  background-image: radial-gradient(#f27f5a 0%, #bf5e3f 100%);
+  filter: drop-shadow(0 0.1rem 0.75rem #f27f5a60);
+}
+
+.juptier {
+  order: 8;
+  position: relative;
+  margin: auto;
+  height: 12vh;
+  width: 12vh;
+  background-image: radial-gradient(#b6a793 0%, #c59d4e 100%);
+  filter: drop-shadow(0 0.25rem 1.75rem #b6a79365);
+  z-index: 80;
+}
+@keyframes juptier-ring-spin {
+  0% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  50% {
+    transform: translate(0%, 10%) rotate(5deg);
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+}
+.juptier-rings {
+  position: relative;
+  margin: auto;
+  top: 4.75vh;
+  right: 0.75vh;
+  height: 3vh;
+  width: 112%;
+  transform: rotate(-5deg);
+  background-image: radial-gradient(#b6a79380 0%, #b6a79380 100%);
+  filter: drop-shadow(0 0.25rem 2rem #b6a793);
+  border: 1px solid #b6a793;
+  z-index: 90;
+  animation: juptier-ring-spin 6s infinite ease-in-out;
+}
+.juptier-rings-inner {
+  position: relative;
+  margin: auto;
+  right: 0.75vh;
+  height: 3vh;
+  width: 112%;
+  background-image: radial-gradient(#b6a79300 0%, #b6a79380 100%);
+  filter: drop-shadow(0 0.25rem 2rem #b6a79360);
+  border: 1px solid #b6a793;
+  z-index: 91;
+}
+.juptier-rings-inner-2 {
+  position: relative;
+  margin: auto;
+  right: 0.75vh;
+  bottom: 3.5vh;
+  height: 3vh;
+  width: 112%;
+  background-image: radial-gradient(#b6a79300 0%, #b6a79380 100%);
+  border: 1px solid #c59d4e90;
+  filter: drop-shadow(0 0.25rem 2rem #b6a79330);
+  z-index: 92;
+  border-radius: 50%;
+}
+
+.saturn {
+  order: 2;
+  position: relative;
+  margin: auto;
+  height: 12vh;
+  width: 12vh;
+  background-image: radial-gradient(#d4b79b 0%, #d4b79b 100%);
+  filter: drop-shadow(0 0.25rem 1.75rem #d7a84b60);
+}
+
+.uranus {
+  order: 9;
+  position: relative;
+  margin: auto;
+  height: 15vh;
+  width: 15vh;
+  background-image: radial-gradient(#d5fbfc 0%, #71929a 100%);
+  filter: drop-shadow(0 0.25rem 2.25rem #d5fbfc50);
+}
+@keyframes uranus-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5.5deg);
+  }
+  65% {
+    transform: rotate(2.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.uranus-ring {
+  position: relative;
+  margin: auto;
+  right: 3vh;
+  top: 7vh;
+  height: 1.5vh;
+  width: 140%;
+  border-radius: 50%;
+  transform: rotate(7deg);
+  border: 1px solid #aae0f260;
+  background-image: radial-gradient(#aae0f2 0%, #aae0f210 50%, #71929a70 100%);
+  filter: drop-shadow(0 0.25rem 2.25rem #aae0f240);
+  animation: uranus-ring-spin 9s infinite ease-in-out;
+}
+.uranus-ring-drk {
+  position: relative;
+  margin: auto;
+  right: 3vh;
+  top: 6vh;
+  height: 0.65vh;
+  width: 130%;
+  border-radius: 50%;
+  transform: rotate(7deg);
+  border: 1px solid #3d505410;
+  background-image: radial-gradient(
+    #71929a70 0%,
+    #71929a10 50%,
+    #3d505440 100%
+  );
+  filter: drop-shadow(0 0.25rem 1.25rem #3d505440);
+  animation: uranus-ring-spin 9s infinite ease-in-out;
+}
+
+.neptune {
+  order: 1;
+  position: relative;
+  margin: auto;
+  height: 21vh;
+  width: 21vh;
+  background-image: radial-gradient(#7fcbea 0%, #3d6eb5 100%);
+  filter: drop-shadow(0 0.25rem 2.25rem #7fcbea70);
+}
+
+/*Background Circles*/
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 6vh;
+}
+.circle-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.big-circle-one {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #60a0d125;
+  box-shadow: 0 0 1px 0px #60a0d125 inset, 0 0 1px 0px #60a0d125;
+  z-index: 2;
+  height: 19.75vw;
+  width: 19.75vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.big-circle-two {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #60a0d120;
+  box-shadow: 0 0 1px 0px #60a0d120 inset, 0 0 1px 0px #60a0d120;
+  z-index: 2;
+  height: 39.5vw;
+  width: 39.5vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.big-circle-three {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #60a0d115;
+  box-shadow: 0 0 1px 0px #60a0d115 inset, 0 0 1px 0px #60a0d115;
+  z-index: 2;
+  height: 59.25vw;
+  width: 59.25vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.big-circle-four {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #60a0d110;
+  box-shadow: 0 0 1px 0px #60a0d110 inset, 0 0 1px 0px #60a0d110;
+  z-index: 2;
+  height: 79vw;
+  width: 79vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Stars*/
+.star {
+  position: absolute;
+  top: 30vh;
+  height: 2px;
+  width: 2px;
+  background-color: #fff;
+  animation: star-glow 12s infinite ease-in-out;
+}
+
+.rocking-star {
+  position: absolute;
+  top: 20vh;
+  height: 0.75vh;
+  width: 1vh;
+  transform: rotate(-90deg);
+  border-radius: 50% 50% 50% 50%;
+  filter: drop-shadow(0 0.25rem 0.4rem #fff);
+  animation: rocket-glow 12s infinite ease-in-out;
+}
+
+@keyframes rocket-glow {
+  0% {
+    transform: translate(0vh, 0vh);
+  }
+  50% {
+    transform: translate(105vh, -15vh);
+    background-color: #faca4b20;
+    backdrop-filter: blur(50em);
+  }
+  100% {
+    transform: translate(215vh, 8vh);
+  }
+}
+@keyframes star-glow {
+  0% {
+    transform: translate(0%, 0%) drop-shadow(0 0.0125rem 0.125rem #ffffff);
+  }
+  50% {
+    transform: translate(0%, 0%) drop-shadow(0 0.0125rem 0.5rem #ffffff);
+    padding: 0.00125vh;
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(0deg)
+      drop-shadow(0 0.0125rem 0.5rem #ffffff);
+  }
+}
+
+@keyframes star-move {
+  0% {
+    transform: translate(0vh, 0vh);
+  }
+  33% {
+    transform: translate(0.15vh, 0.75vh);
+    padding: 0.02vh;
+  }
+  66% {
+    transform: translate(1.25vh, 0.75vh);
+    padding: 0.015vh;
+  }
+  100% {
+    transform: translate(0vh, 0vh);
+  }
+}
+@keyframes star-move-two {
+  0% {
+    transform: translate(0vh, 0vh);
+  }
+  33% {
+    transform: translate(-1.25vh, 1vh);
+    padding: 0.025vh;
+  }
+  66% {
+    transform: translate(-0.5vh, 1.1vh);
+    padding: 0.012vh;
+  }
+  100% {
+    transform: translate(0vh, 0vh);
+  }
+}
+@keyframes star-move-three {
+  0% {
+    transform: translate(0vh, 0vh);
+  }
+  33% {
+    transform: translate(-0.65vh, -1vh);
+    padding: 0.012vh;
+  }
+  66% {
+    transform: translate(1.05vh, -0.5vh);
+    padding: 0.007vh;
+  }
+  100% {
+    transform: translate(0vh, 0vh);
+  }
+}
+
+.one {
+  left: 38%;
+  top: 80%;
+  animation: star-move 12s, star-move-three 4s infinite ease-in-out;
+}
+.two {
+  left: 14%;
+  top: 30%;
+  animation: star-move-three 12s infinite ease-in-out;
+}
+.three {
+  left: 88%;
+  top: 13%;
+  animation: star-move 8s, star-move-three 11s infinite ease-in-out;
+}
+.four {
+  left: 43%;
+  top: 41%;
+  animation: star-move-two 8s infinite ease-in-out;
+}
+.five {
+  left: 15%;
+  bottom: 73%;
+  animation: star-move 5s infinite ease-in-out;
+}
+.six {
+  left: 84%;
+  top: 83%;
+  animation: star-move-two 8s, star-move-three 5s infinite ease-in-out;
+}
+.seven {
+  left: 29%;
+  bottom: 20%;
+  animation: star-move-two 12s, star-move-three 5s infinite ease-in-out;
+}
+.eight {
+  left: 74%;
+  top: 32%;
+  animation: star-move-two 8s infinite ease-in-out;
+}
+.nine {
+  left: 67%;
+  bottom: 73%;
+  animation: star-move 5s infinite ease-in-out;
+}
+.ten {
+  left: 26%;
+  top: 40%;
+  animation: star-move-two 8s, star-move 5s infinite ease-in-out;
+}
+.eleven {
+  left: 41%;
+  top: 74%;
+  animation: star-move-two 12s, star-move-three 7s infinite ease-in-out;
+}
+.twelve {
+  left: 31%;
+  top: 20%;
+  animation: star-move-two 8s, star-move 11s infinite ease-in-out;
+}
+.thirdteen {
+  left: 10%;
+  top: 88%;
+  animation: star-move 12s, star-move-three 5s infinite ease-in-out;
+}
+.fourteen {
+  left: 10%;
+  top: 88%;
+  animation: star-move-three 8s infinite ease-in-out;
+}
+.fifteen {
+  right: 38%;
+  bottom: 80%;
+  animation: star-move-two 5s infinite ease-in-out;
+}
+.sixteen {
+  right: 14%;
+  top: 30%;
+  animation: star-move-three 12s infinite ease-in-out;
+}
+.seventeen {
+  right: 88%;
+  top: 13%;
+  animation: star-move-three 5s, star-move 4s infinite ease-in-out;
+}
+.eighteen {
+  right: 43%;
+  bottom: 41%;
+  animation: star-move-three 8s, star-move 12s infinite ease-in-out;
+}
+.nineteen {
+  right: 15%;
+  top: 73%;
+  animation: star-move 12s infinite ease-in-out;
+}
+.twenty {
+  right: 84%;
+  top: 83%;
+  animation: star-move-two 8s infinite ease-in-out;
+}
+.twenty-one {
+  right: 29%;
+  bottom: 20%;
+  animation: star-move-three 8s infinite ease-in-out;
+}
+.twenty-two {
+  right: 74%;
+  top: 32%;
+  animation: star-move-two 8s, star-move-three 8s infinite ease-in-out;
+}
+.twenty-three {
+  right: 67%;
+  top: 73%;
+  animation: star-move 12s infinite ease-in-out;
+}
+.twenty-four {
+  right: 26%;
+  top: 40%;
+  animation: star-move-three 8s infinite ease-in-out;
+}
+.twenty-five {
+  right: 41%;
+  bottom: 74%;
+  animation: star-move 5s infinite ease-in-out;
+}
+.twenty-six {
+  right: 31%;
+  top: 20%;
+  animation: star-move-three 5s infinite ease-in-out;
+}
+.twenty-seven {
+  right: 10%;
+  bottom: 88%;
+  animation: star-move-two 8s infinite ease-in-out;
+}
+.twenty-eight {
+  right: 10%;
+  top: 88%;
+  animation: star-move 5s, star-move-two 9s infinite ease-in-out;
+}
+
+@media only screen and (max-width: 480px) {
+  main {
+    width: 97%;
+    height: 97%;
+    margin: auto;
+  }
+
+  .sun {
+    height: 9vh;
+    width: 9vh;
+  }
+  .mercury {
+    height: 1vh;
+    width: 1vh;
+  }
+  .venus {
+    height: 1.75vh;
+    width: 1.75vh;
+  }
+  .earth {
+    height: 2vh;
+    width: 2vh;
+  }
+  .earth-shadow {
+    height: 2vh;
+    width: 2vh;
+  }
+  .moon {
+    height: 0.6vh;
+    width: 0.6vh;
+    top: -0.25vh;
+    left: 1vw;
+  }
+  .mars {
+    height: 1.5vh;
+    width: 1.5vh;
+  }
+  .juptier {
+    height: 5.5vh;
+    width: 5.5vh;
+  }
+  .saturn {
+    height: 7.5vh;
+    width: 7.5vh;
+  }
+  .uranus {
+    height: 10vh;
+    width: 10vh;
+  }
+  .neptune {
+    height: 12vh;
+    width: 12vh;
+  }
+  .juptier-rings {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .juptier-rings-inner {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .juptier-rings-inner-2 {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .uranus-ring {
+    height: 1vh;
+    width: 130%;
+    margin-left: 40%;
+    top: 50%;
+  }
+
+  .uranus-ring-drk {
+    height: 1vh;
+    width: 130%;
+    margin-left: 40%;
+    top: 50%;
+  }
+
+  @keyframes moon-spin {
+    0% {
+      transform: rotate(0deg) translateX(1vh);
+    }
+    50% {
+      transform: rotate(180deg) translateX(4vh);
+    }
+    100% {
+      transform: rotate(360deg) translateX(1vh);
+    }
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1280px) {
+  main {
+    width: 97%;
+    height: 97%;
+    margin: auto;
+  }
+
+  .sun {
+    height: 6vh;
+    width: 6vh;
+  }
+  .mercury {
+    height: 1vh;
+    width: 1vh;
+  }
+  .venus {
+    height: 1.75vh;
+    width: 1.75vh;
+  }
+  .earth {
+    height: 2vh;
+    width: 2vh;
+  }
+  .earth-shadow {
+    height: 2vh;
+    width: 2vh;
+  }
+  .moon {
+    height: 0.6vh;
+    width: 0.6vh;
+    top: -0.25vh;
+    left: 1vw;
+  }
+  .mars {
+    height: 1.5vh;
+    width: 1.5vh;
+  }
+  .juptier {
+    height: 5.5vh;
+    width: 5.5vh;
+  }
+  .saturn {
+    height: 7.5vh;
+    width: 7.5vh;
+  }
+  .uranus {
+    height: 10vh;
+    width: 10vh;
+  }
+  .neptune {
+    height: 12vh;
+    width: 12vh;
+  }
+  .juptier-rings {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .juptier-rings-inner {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .juptier-rings-inner-2 {
+    left: 0%;
+    right: 0%;
+    top: 30%;
+    height: 1vh;
+    width: 5.5vh;
+  }
+  .uranus-ring {
+    height: 1vh;
+    width: 130%;
+    margin-left: 40%;
+    top: 50%;
+  }
+
+  .uranus-ring-drk {
+    height: 1vh;
+    width: 130%;
+    margin-left: 40%;
+    top: 50%;
+  }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 2000px) {
+  .ring {
+    margin-left: 0.75vw;
+  }
+}
